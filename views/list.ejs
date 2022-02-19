@@ -1,0 +1,26 @@
+<%- include('header'); -%>
+
+<div class="box" id="heading">
+    <h1><%= day %>'s <%= listTitle %></h1>
+</div>
+
+
+<div class="box">
+    <% for(task in tasks) { %>
+        <div class="item">
+            <input type="checkbox">
+            <p><%= tasks[task] %></p>
+        </div>
+    <% } %>
+
+    <form action="/" method="post" class="item">
+        <input type="text" name="newTask" placeholder="Add a task" autocomplete="off">
+        <button id="addTaskButton" type="submit" name="list" value=<%= listTitle %>>+</button>
+    </form>   
+</div>
+
+<form action="<%= path %>">
+    <button id="redirectButton" type="submit" value="redirectButton"><%= redirectText %></button>
+</form>
+   
+<%- include('footer'); -%>
